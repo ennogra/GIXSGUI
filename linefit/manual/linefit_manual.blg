@@ -1,0 +1,91 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: linefit_manual.aux
+The style file: apsrev4-1.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: linefit_manualNotes.bib
+Database file #2: linefit_manual.bib
+Warning--entry type for "peakfinder" isn't style-file defined
+--line 21 of file linefit_manual.bib
+Warning--entry type for "skewnorm" isn't style-file defined
+--line 90 of file linefit_manual.bib
+Warning--entry type for "inversegamma" isn't style-file defined
+--line 110 of file linefit_manual.bib
+Warning--entry type for "inversenorm" isn't style-file defined
+--line 114 of file linefit_manual.bib
+Warning--entry type for "logcauchy" isn't style-file defined
+--line 118 of file linefit_manual.bib
+Warning--entry type for "lognorm" isn't style-file defined
+--line 122 of file linefit_manual.bib
+Warning--entry type for "paretoI" isn't style-file defined
+--line 126 of file linefit_manual.bib
+Warning--entry type for "weibull" isn't style-file defined
+--line 130 of file linefit_manual.bib
+Warning--entry type for "pearsonVII" isn't style-file defined
+--line 134 of file linefit_manual.bib
+control{REVTEX41Control}, control.key{N/A}, control.author{N/A}, control.editor{N/A}, control.title{N/A}, control.pages{N/A}, control.year{N/A}, control.eprint{N/A}, 
+control{apsrev41Control}, control.key{N/A}, control.author{08}, control.editor{1}, control.title{}, control.pages{0}, control.year{1}, control.eprint{N/A}, 
+Warning--jnrlst (dependency: not reversed) set 1
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+merlin.mbs apsrev4-1.bst 2010-07-25 4.21a (PWD, AO, DPC) hacked
+Control: key (0) 
+Control: author (8) initials jnrlst
+Control: editor formatted (1) identically to author
+Control: production of article title (-1) disabled
+Control: page (0) single
+Control: year (1) truncated
+Control: production of eprint (0) enabled
+Warning--empty year in Faddeeva
+Warning--empty year in generalizednorm1
+Warning--missing publisher in McLaughlin
+Warning--empty year in uniform
+Warning--empty year in paretoI
+Warning--empty year in weibull
+You've used 26 entries,
+            5847 wiz_defined-function locations,
+            1689 strings with 16772 characters,
+and the built_in function-call counts, 15891 in all, are:
+= -- 1204
+> -- 237
+< -- 107
++ -- 110
+- -- 69
+* -- 2091
+:= -- 1674
+add.period$ -- 24
+call.type$ -- 26
+change.case$ -- 101
+chr.to.int$ -- 32
+cite$ -- 60
+duplicate$ -- 1569
+empty$ -- 1204
+format.name$ -- 138
+if$ -- 3070
+int.to.chr$ -- 6
+int.to.str$ -- 33
+missing$ -- 186
+newline$ -- 124
+num.names$ -- 30
+pop$ -- 888
+preamble$ -- 1
+purify$ -- 106
+quote$ -- 0
+skip$ -- 566
+stack$ -- 0
+substring$ -- 422
+swap$ -- 1220
+text.length$ -- 25
+text.prefix$ -- 0
+top$ -- 10
+type$ -- 300
+warning$ -- 7
+while$ -- 39
+width$ -- 0
+write$ -- 212
+(There were 16 warnings)

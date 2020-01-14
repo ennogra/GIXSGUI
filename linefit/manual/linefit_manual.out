@@ -1,0 +1,14 @@
+\BOOKMARK [0][-]{section*.1}{LineFit: a Matlab Toolbox for 1D Line Fitting}{}% 1
+\BOOKMARK [1][-]{section*.2}{Contents}{section*.1}% 2
+\BOOKMARK [1][-]{section*.3}{Overview}{section*.1}% 3
+\BOOKMARK [1][-]{section*.4}{Installation}{section*.1}% 4
+\BOOKMARK [1][-]{section*.5}{Usage}{section*.1}% 5
+\BOOKMARK [2][-]{section*.6}{Script Mode}{section*.5}% 6
+\BOOKMARK [3][-]{section*.7}{Fitting a double-peak profile}{section*.6}% 7
+\BOOKMARK [3][-]{section*.8}{Customized or combined curve models}{section*.6}% 8
+\BOOKMARK [2][-]{section*.9}{GUI Mode}{section*.5}% 9
+\BOOKMARK [1][-]{section*.10}{Appendices}{section*.1}% 10
+\BOOKMARK [1][-]{section*.11}{List of linefit properties}{section*.1}% 11
+\BOOKMARK [1][-]{section*.12}{List of linefit methods}{section*.1}% 12
+\BOOKMARK [1][-]{section*.13}{List of linefit built-in curve models}{section*.1}% 13
+\BOOKMARK [1][-]{section*.14}{References}{section*.1}% 14
