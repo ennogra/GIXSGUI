@@ -117,18 +117,21 @@ miller_ba = mm(idx);        % (nx1) cell with each element (mx3) stores m degene
 
 % --- calculate angles and q in DWBA
 qr_ba = sqrt(q_ba(:,1).^2+q_ba(:,2).^2);
-af_ba = asin((q_ba(:,3)/k_film));       % BA angle ignoring the reflection effect
+af_ba = asin((q_ba(:,3)/k_film) - sind(alpha_i));       % BA angle ignoring the reflection effect % 2023/12/15
+% af_ba = asin((q_ba(:,3)/k_film) - 0);       % BA angle ignoring the reflection effect % 2023/12/15
+
 af1 = asin( real( sqrt( (q_ba(:,3)/k_film).^2+sin(alpha_i*pi/180)^2 - 2*q_ba(:,3)/k_film*sqrt(sin(alpha_i*pi/180)^2-1+nfilm^2) ) ) );
-af2 = asin( real(sqrt((q_ba(:,3)/k_film).^2+sin(alpha_i*pi/180)^2 + 2*q_ba(:,3)/k_film*sqrt(sin(alpha_i*pi/180)^2-1+nfilm^2))) );
-% % check alpha_i and qz values in the film to correct the sign of af1 only  $Date: 2017/01/10 $ 
-% alpha_i_film = acosd(cosd(alpha_i)/real(nfilm));         % snell's law
-% qz_film_min = k_film*nfilm*sind(alpha_i_film);          % minimum qz that can be reached in film, i.e. when alpha_f_film = 0
-% ind_qz_film_min = q_ba(:,3)<real(qz_film_min);          % here we ignore the GITSAXS peaks
-% af1(ind_qz_film_min) = -af1(ind_qz_film_min);
+af2 = asin( real( sqrt( (q_ba(:,3)/k_film).^2+sin(alpha_i*pi/180)^2 + 2*q_ba(:,3)/k_film*sqrt(sin(alpha_i*pi/180)^2-1+nfilm^2))) );
+% % check alpha_i and qz values in the film to correct the sign of af1 only
+% $Date: 2017/01/10 $ & 2023/12/15 enable
+alpha_i_film = acosd(cosd(alpha_i)/real(nfilm));         % snell's law
+qz_film_min = k_film*nfilm*sind(alpha_i_film);          % minimum qz that can be reached in film, i.e. when alpha_f_film = 0
+ind_qz_film_min = q_ba(:,3)<real(qz_film_min);          % here we ignore the GITSAXS peaks
+af1(ind_qz_film_min) = -af1(ind_qz_film_min);
 
 t_ba = acos(real((cos(af_ba).^2+cos(alpha_i*pi/180)^2-(qr_ba/k_film).^2)./(2*cos(af_ba)*cos(alpha_i*pi/180))));
-t1 = acos(real((cos(af1).^2+cos(alpha_i*pi/180)^2-(qr_ba/k_film).^2)./(2*cos(af1)*cos(alpha_i*pi/180))));
-t2 = acos(real((cos(af2).^2+cos(alpha_i*pi/180)^2-(qr_ba/k_film).^2)./(2*cos(af2)*cos(alpha_i*pi/180))));
+t1 =   acos(real((cos(af1).^2  +cos(alpha_i*pi/180)^2-(qr_ba/k_film).^2)./(2*cos(af1)  *cos(alpha_i*pi/180))));
+t2 =   acos(real((cos(af2).^2  +cos(alpha_i*pi/180)^2-(qr_ba/k_film).^2)./(2*cos(af2)  *cos(alpha_i*pi/180))));
 af_ba_real = real(af_ba)*180/pi;
 af1_real = real(af1)*180/pi;
 af2_real = real(af2)*180/pi;
@@ -147,8 +150,9 @@ q_dwba_r(:,2) = k0*cos(af2_real*pi/180).*sin(t2_real*pi/180);
 q_dwba_r(:,3) = k0*(sin(af2_real*pi/180)+sin(alpha_i*pi/180));
 
 % --- remove negative qz (in BA) values for GIXS; but keep those in af_ba
-% and t_ba;
-index_q_ba = (q_ba(:,3)<0);
+% and t_ba; 
+index_q_ba = (q_ba(:,3)<0); 
+%index_q_ba = [];
 t1_real(index_q_ba) = [];
 t2_real(index_q_ba) = [];
 af1_real(index_q_ba) = [];
@@ -156,7 +160,9 @@ af2_real(index_q_ba) = [];
 
 q_dwba_t(index_q_ba,:) = [];
 q_dwba_r(index_q_ba,:) = [];
-miller_dwba = miller_ba(~index_q_ba);
+% miller_dwba = miller_ba(~index_q_ba);
+miller_dwba = miller_ba;
+miller_dwba(index_q_ba) = [];
 
 % --- construct result structure
 
@@ -164,12 +170,17 @@ result.miller_ba_full = miller_ba;
 result.angle_ba_full = [t_ba_real,af_ba_real];
 result.q_ba_full = q_ba;
 result.miller = miller_dwba;
-result.angle_ba = result.angle_ba_full(~index_q_ba,:);
+% result.angle_ba = result.angle_ba_full(~index_q_ba,:);
+result.angle_ba = result.angle_ba_full;
+result.angle_ba(index_q_ba,:) = [];
 result.angle_t = [t1_real,af1_real];
 result.angle_r = [t2_real,af2_real];
 result.q_dwba_t = q_dwba_t;
 result.q_dwba_r = q_dwba_r;
-result.q_ba = q_ba(~index_q_ba,:);
+% result.q_ba = q_ba(~index_q_ba,:);  
+result.q_ba = q_ba;
+result.q_ba(index_q_ba,:) = [];
+
 %result.zeta = angle(result.q_ba(:,1)+1i*result.q_ba(:,2))*180/pi;    % angle in the substrate system that contribute to scattering 
 
 
